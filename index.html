@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>51爆料-娱乐爆料_热门爆料_吃瓜爆料_网络热点爆料</title>
+<meta name="description" content="51爆料是聚焦网络娱乐热点与爆料话题的信息聚合页，整理热门爆料事件、吃瓜话题脉络、爆料来源辨识方法与理性阅读提示，帮助访问者快速了解事件背景、分辨信息真伪并掌握围观爆料的正确姿势。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23b3242b'/%3E%3Cpath d='M20 18h24v6H20zm0 11h24v6H20zm0 11h14v6H20z' fill='%23fff'/%3E%3Ccircle cx='46' cy='46' r='9' fill='%23ffd166'/%3E%3Cpath d='M46 41v6l4 3' stroke='%23b3242b' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1c1a1d;
+  --ink-soft:#4a454d;
+  --paper:#faf6f1;
+  --panel:#ffffff;
+  --line:#e3d9cf;
+  --red:#b3242b;
+  --red-deep:#8c1a20;
+  --gold:#c99a3c;
+  --tag:#f2e8dc;
+  --radius:6px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+a{color:var(--red-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* 顶部 */
+.topbar{background:var(--ink);color:#f0e9e2;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:12px;overflow:hidden}
+.topbar span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 头部 */
+.masthead{background:var(--panel);border-bottom:3px solid var(--red)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px;flex-wrap:wrap;gap:14px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:46px;height:46px;border-radius:8px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;letter-spacing:-1px;flex:0 0 auto}
+.logo-text b{display:block;font-size:22px;letter-spacing:1px;color:var(--ink)}
+.logo-text small{display:block;font-size:12px;color:var(--ink-soft);letter-spacing:2px}
+.masthead nav{display:flex;gap:6px;flex-wrap:wrap}
+.masthead nav a{font-size:14px;color:var(--ink-soft);padding:6px 12px;border-radius:var(--radius);border:1px solid transparent}
+.masthead nav a:hover{background:var(--tag);border-color:var(--line);text-decoration:none;color:var(--red-deep)}
+
+/* 首屏 */
+.lead{padding:34px 0 10px}
+.lead .wrap{display:grid;grid-template-columns:1.55fr 1fr;gap:34px;align-items:start}
+.lead h1{font-size:34px;line-height:1.35;letter-spacing:.5px;margin-bottom:14px}
+.lead h1 em{font-style:normal;color:var(--red);border-bottom:4px solid rgba(179,36,43,.18)}
+.lead .tagline{font-size:17px;color:var(--red-deep);font-weight:600;margin-bottom:16px;padding-left:12px;border-left:4px solid var(--gold)}
+.lead .intro{font-size:15.5px;color:var(--ink-soft)}
+.lead .intro p+p{margin-top:12px}
+.side-note{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 1px 0 var(--line)}
+.side-note h2{font-size:15px;color:var(--red-deep);margin-bottom:12px;letter-spacing:1px;border-bottom:1px dashed var(--line);padding-bottom:10px}
+.side-note ul{list-style:none;font-size:14px;color:var(--ink-soft)}
+.side-note li{padding:8px 0 8px 20px;position:relative;border-bottom:1px dotted var(--line)}
+.side-note li:last-child{border-bottom:none}
+.side-note li::before{content:"";position:absolute;left:4px;top:16px;width:7px;height:7px;background:var(--gold);border-radius:2px}
+
+/* 主体栏目 */
+main{padding-bottom:10px}
+.block{padding:32px 0;border-top:1px solid var(--line)}
+.block:first-of-type{border-top:none}
+.block-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;flex-wrap:wrap}
+.block-head h2{font-size:23px;letter-spacing:.5px;position:relative;padding-left:14px}
+.block-head h2::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;background:var(--red);border-radius:2px}
+.block-head .sub{font-size:13px;color:var(--ink-soft);letter-spacing:1px}
+.block p{font-size:15.5px;color:var(--ink-soft)}
+.block p+p{margin-top:12px}
+.prose{max-width:820px}
+.prose p{margin-bottom:13px}
+
+/* 双栏栏目 */
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:start}
+
+/* 列表要点 */
+.point-list{list-style:none;margin-top:16px;display:grid;gap:9px}
+.point-list li{position:relative;padding-left:24px;font-size:15px;color:var(--ink-soft)}
+.point-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--red);font-weight:700}
+
+/* 分类卡片 */
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px}
+.topic{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:border-color .15s}
+.topic:hover{border-color:var(--red)}
+.topic h3{font-size:17px;margin-bottom:8px;color:var(--ink)}
+.topic .tag{display:inline-block;font-size:12px;color:var(--red-deep);background:var(--tag);border-radius:3px;padding:1px 8px;margin-bottom:10px;letter-spacing:1px}
+.topic p{font-size:14px;color:var(--ink-soft)}
+.topic .state{display:block;margin-top:12px;font-size:12.5px;color:#8a7f75;border-top:1px dashed var(--line);padding-top:8px}
+
+/* 步骤 */
+.steps{counter-reset:step;list-style:none;display:grid;gap:16px;margin-top:6px}
+.steps li{counter-increment:step;background:var(--panel);border-left:4px solid var(--red);border-radius:0 var(--radius) var(--radius) 0;padding:16px 20px 16px 58px;position:relative;box-shadow:0 1px 0 var(--line)}
+.steps li::before{content:counter(step);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps li strong{display:block;font-size:15.5px;margin-bottom:4px}
+.steps li span{font-size:14px;color:var(--ink-soft)}
+
+/* 对比表 */
+.compare{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px;background:var(--panel)}
+.compare caption{text-align:left;font-size:13px;color:#8a7f75;padding-bottom:8px}
+.compare th,.compare td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+.compare th{background:var(--tag);color:var(--ink);font-weight:600;white-space:nowrap}
+.compare td{color:var(--ink-soft)}
+
+/* 提示框 */
+.notice{background:#fdf4e6;border:1px solid #ecd9b6;border-radius:var(--radius);padding:18px 20px;margin-top:18px}
+.notice h3{font-size:15.5px;color:var(--red-deep);margin-bottom:8px}
+.notice p{font-size:14.5px;color:#6b5f52}
+
+/* 问答 */
+.faq{display:grid;gap:12px;margin-top:6px}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px}
+.faq details[open]{border-color:var(--red)}
+.faq summary{cursor:pointer;font-size:15.5px;font-weight:600;color:var(--ink);list-style:none;position:relative;padding-right:24px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:0;color:var(--red);font-size:18px;font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq .answer{margin-top:10px;font-size:14.5px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:10px}
+
+/* 行动区 */
+.cta{background:var(--ink);color:#f3ece5;border-radius:var(--radius);padding:32px 30px;margin:34px 0 10px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.cta h2{font-size:22px;margin-bottom:8px;color:#fff}
+.cta p{font-size:14.5px;color:#cfc4ba;max-width:640px}
+.cta .badge{flex:0 0 auto;background:var(--red);color:#fff;font-size:14px;padding:10px 22px;border-radius:30px;letter-spacing:1px}
+
+/* 页脚 */
+footer{background:#26222a;color:#b7ada3;font-size:13.5px;padding:30px 0 40px;margin-top:20px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer h3{color:#f0e9e2;font-size:14.5px;margin-bottom:10px;letter-spacing:1px}
+footer p{color:#a99f95;line-height:1.8}
+footer ul{list-style:none}
+footer li{padding:4px 0;color:#a99f95}
+footer .copyright{grid-column:1/-1;border-top:1px solid #3a343c;padding-top:16px;color:#8d837a;font-size:12.5px}
+
+@media (max-width:900px){
+  .lead .wrap{grid-template-columns:1fr;gap:20px}
+  .split{grid-template-columns:1fr;gap:20px}
+  .topic-grid{grid-template-columns:repeat(2,1fr)}
+  footer .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  body{font-size:15.5px}
+  .topbar .wrap{height:auto;padding-top:8px;padding-bottom:8px;flex-direction:column;align-items:flex-start;gap:2px}
+  .masthead .wrap{padding-top:14px;padding-bottom:14px}
+  .lead{padding:22px 0 6px}
+  .lead h1{font-size:25px}
+  .lead .tagline{font-size:15.5px}
+  .block{padding:24px 0}
+  .block-head h2{font-size:19.5px}
+  .topic-grid{grid-template-columns:1fr}
+  .cta{padding:24px 20px}
+  .cta h2{font-size:19px}
+  .compare{display:block;overflow-x:auto;white-space:nowrap}
+  .steps li{padding:14px 16px 14px 52px}
+  footer .wrap{grid-template-columns:1fr;gap:18px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>爆料话题整理 · 吃瓜信息导航 · 理性围观提示</span>
+    <span>本站为资讯整理页面，不采集、不传播未经核实内容</span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="logo">
+      <div class="logo-mark">51</div>
+      <div class="logo-text">
+        <b>51爆料</b>
+        <small>热点爆料话题整理</small>
+      </div>
+    </div>
+    <nav aria-label="页面导航">
+      <a href="#concept">爆料是什么</a>
+      <a href="#topics">话题分类</a>
+      <a href="#howto">围观步骤</a>
+      <a href="#judge">真伪辨识</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="lead" id="concept">
+  <div class="wrap">
+    <div>
+      <h1>51爆料：把热闹的<em>爆料</em>话题理清楚，再决定要不要吃这口瓜</h1>
+      <p class="tagline">聚焦娱乐与网络热点中的爆料话题，梳理事件脉络、整理信息来源、提示阅读边界。</p>
+      <div class="intro">
+        <p>51爆料是一个围绕网络爆料与吃瓜话题做信息梳理的页面。它不替你判断谁对谁错，而是把一件爆料从出现、发酵到反转的常见过程拆开讲清楚：消息最初从哪里来、经过了哪些转述、哪些说法有原始材料支撑、哪些只是二次加工。对每天刷到大量碎片信息的访问者来说，这种整理比多刷十条截图更有用。</p>
+        <p>在51爆料的语境里，“爆料”既可能指娱乐八卦中的明星动态传闻，也可能指职场、消费、社交平台上的争议事件。不同领域的爆料，可信度判断方式并不相同。本页会按话题类型分别说明，让访问者面对一条新爆料时，知道先看什么、后看什么，以及哪些内容不值得继续传播。</p>
+      </div>
+    </div>
+    <aside class="side-note">
+      <h2>本页能帮你解决</h2>
+      <ul>
+        <li>看到一条爆料，先判断它属于哪一类话题</li>
+        <li>分辨原始爆料与二次转述的差别</li>
+        <li>了解爆料常见的反转原因</li>
+        <li>知道哪些内容不适合转发</li>
+        <li>掌握围观爆料的基本礼仪与边界</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="block" id="topics">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>51爆料的话题分类：不同爆料，看的地方不一样</h2>
+      <span class="sub">分类决定判断方式</span>
+    </div>
+    <p class="prose">同样是爆料，娱乐八卦和消费纠纷的关注点完全不同。娱乐类爆料更依赖时间线、当事人回应和媒体核对；消费类爆料更看重凭证、订单、沟通记录；职场类爆料则要区分个人陈述与可验证事实。把话题先归类，是读爆料最省力的第一步。</p>
+    <div class="topic-grid">
+      <article class="topic">
+        <span class="tag">娱乐爆料</span>
+        <h3>明星动态与作品相关传闻</h3>
+        <p>这类爆料通常传播最快、截图最多。阅读时优先找当事人或工作室的公开回应，再看首发账号是否长期专注该领域，最后核对时间是否对得上。</p>
+        <span class="state">内容整理中，按话题持续补充</span>
+      </article>
+      <article class="topic">
+        <span class="tag">网络热点</span>
+        <h3>社交平台上的争议事件</h3>
+        <p>热点事件往往伴随大量情绪化转述。先看有没有原始视频、完整聊天记录或官方通报，再判断流传版本是否被截断。</p>
+        <span class="state">内容整理中，按话题持续补充</span>
+      </article>
+      <article class="topic">
+        <span class="tag">消费爆料</span>
+        <h3>产品服务相关的吐槽与维权</h3>
+        <p>关注订单、发票、售后沟通等可核验材料。单方面描述只能作为线索，不能直接当作结论。</p>
+        <span class="state">内容整理中，按话题持续补充</span>
+      </article>
+      <article class="topic">
+        <span class="tag">职场爆料</span>
+        <h3>公司内部与用工争议</h3>
+        <p>需区分个人经历陈述与普遍情况。匿名爆料信息量有限，注意是否带有明显立场或利益动机。</p>
+        <span class="state">内容整理中，按话题持续补充</span>
+      </article>
+      <article class="topic">
+        <span class="tag">辟谣反转</span>
+        <h3>已被更正或推翻的说法</h3>
+        <p>反转是爆料生态的常态。看到旧截图时，先确认它是否已被后续信息修正，避免把过时内容当新料。</p>
+        <span class="state">内容整理中，按话题持续补充</span>
+      </article>
+      <article class="topic">
+        <span class="tag">吃瓜方法</span>
+        <h3>围观爆料的方式与边界</h3>
+        <p>吃瓜不等于可以随意传播他人隐私。了解转发风险、名誉权边界和平台规则，能让围观更安全。</p>
+        <span class="state">内容整理中，按话题持续补充</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="howto">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="block-head">
+          <h2>看一条51爆料的四步法</h2>
+          <span class="sub">从看到转发只需几分钟</span>
+        </div>
+        <p>很多人读爆料是“先信后看”，结果情绪被带着走。把顺序调过来会轻松很多：先确认来源，再看材料，然后找回应，最后决定要不要继续关注。下面四步不需要专业工具，普通手机用户就能完成。</p>
+        <ol class="steps">
+          <li>
+            <strong>第一步：找首发，而不是找最热的转发</strong>
+            <span>截图传播越广，离原始信息往往越远。先定位最早发布这条爆料的账号或渠道，看它是否有历史内容、是否专注该领域。</span>
+          </li>
+          <li>
+            <strong>第二步：看材料是否完整</strong>
+            <span>一段视频要看开头结尾，一张聊天截图要看上下语境。被裁掉的部分，常常正是改变结论的关键。</span>
+          </li>
+          <li>
+            <strong>第三步：找当事方或相关方的公开回应</strong>
+            <span>有回应不代表一定真实，但没有回应的单方面爆料，信息完整度天然不足。回应本身也要看是否具体、是否可核对。</span>
+          </li>
+          <li>
+            <strong>第四步：观察后续是否出现更正</strong>
+            <span>爆料发酵后常出现删帖、改口、补充说明。把这些变化记下来，比记住某一句金句更有价值。</span>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <div class="block-head">
+          <h2>读51爆料时最容易忽略的细节</h2>
+        </div>
+        <ul class="point-list">
+          <li>时间标注是否完整，有没有“近日”“某天”这类模糊说法</li>
+          <li>账号名称是否与知名媒体高度相似但并非同一主体</li>
+          <li>截图里的头像、昵称是否被打码后又“恰好”能认出</li>
+          <li>同一段文字是否在多个账号几乎同时出现</li>
+          <li>爆料者是否在文末引导关注、加群或私信</li>
+          <li>内容是否刻意省略了对某一方有利的信息</li>
+        </ul>
+        <div class="notice">
+          <h3>关于“独家爆料”的说法</h3>
+          <p>自称独家的爆料并不天然更可信。判断重点仍是材料本身能否核对，而不是发布者给自己贴了什么标签。遇到无法验证的独家说法，保持观望即可。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="judge">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>51爆料的真伪辨识：三类信号值得留意</h2>
+      <span class="sub">不是教你当侦探，而是少踩坑</span>
+    </div>
+    <p class="prose">爆料真假往往不是非黑即白，更多是“部分真实、部分加工”。下面从来源、材料、传播三个角度整理常见信号，帮助访问者快速建立初步判断。需要说明的是，这些信号只能作为参考，不能替代正式调查或权威通报。</p>
+    <table class="compare">
+      <caption>不同信号的含义与应对方式</caption>
+      <thead>
+        <tr>
+          <th>观察角度</th>
+          <th>偏可信的表现</th>
+          <th>需谨慎的表现</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>来源</td>
+          <td>发布主体明确，有持续内容记录，愿意为说法负责</td>
+          <td>新注册账号、名称蹭热度、发布后迅速改名或注销</td>
+        </tr>
+        <tr>
+          <td>材料</td>
+          <td>原始文件、完整记录、可交叉核对的时间地点</td>
+          <td>只有截图、只有转述、关键处打码或明显拼接</td>
+        </tr>
+        <tr>
+          <td>传播</td>
+          <td>讨论中出现不同视角，有人提出质疑并被回应</td>
+          <td>评论区高度一致、清一色情绪表达、质疑被删除</td>
+        </tr>
+        <tr>
+          <td>动机</td>
+          <td>没有明显引流、带货或报复倾向</td>
+          <td>爆料与推广、募捐、私域引流紧密绑定</td>
+        </tr>
+        <tr>
+          <td>后续</td>
+          <td>出现补充说明、更正或权威渠道回应</td>
+          <td>只增不减、越传越夸张、始终没有可核实进展</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="prose">在51爆料的日常整理中，一个反复出现的现象是：同一条爆料在不同平台会呈现完全不同的版本。有人补充背景，有人删掉限定条件，最后变成一句绝对化结论。访问者若只看单一版本，很容易形成误判。因此，遇到争议较大的话题，多找两个独立来源对照，往往比在评论区争论更有效。</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>51爆料的吃瓜礼仪：围观也有边界</h2>
+      <span class="sub">热闹可以看，底线要守住</span>
+    </div>
+    <div class="split">
+      <div>
+        <p>爆料话题之所以吸引人，是因为它同时包含信息、情绪和立场。但围观者与当事人之间隔着屏幕，这种距离容易让人忽略表达的分量。一句随手转发的评论，可能给无关的人带来持续困扰。围绕51爆料这类话题，保持基本的克制并不难。</p>
+        <ul class="point-list">
+          <li>不传播包含身份证号、住址、电话等个人信息的截图</li>
+          <li>不参与人肉搜索，也不在评论区补充他人隐私</li>
+          <li>对未成年人相关内容保持距离，不转发不评论</li>
+          <li>区分“讨论事件”与“攻击个人”，措辞留有余地</li>
+          <li>发现自己转错内容时，主动删除并说明</li>
+        </ul>
+      </div>
+      <div>
+        <p>另一个常被忽视的点是“二次伤害”。有些爆料在传播中被反复加工，最终脱离原貌，甚至波及与事件无关的人。对普通访问者来说，最实际的做法是：不确定的内容不转，情绪上头时先放一放，等更多信息出现再决定是否参与讨论。</p>
+        <p>51爆料更希望被当作一个“看清来龙去脉”的地方，而不是情绪放大器。整理话题、标注疑点、提示风险，比抢第一时间下结论更有长期价值。访问者若能在读完一个话题后多问一句“这条消息最早从哪来”，这个页面的目的就达到了。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>51爆料常见问题</h2>
+      <span class="sub">关于爆料与吃瓜的疑问</span>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>51爆料是官方爆料平台吗？</summary>
+        <div class="answer">不是。51爆料是一个围绕网络爆料话题做信息整理与阅读提示的页面，不代表任何机构或当事人，也不发布未经核实的指控性内容。页面重点在于帮助访问者理解爆料如何产生、如何辨别，以及围观时需要注意什么。</div>
+      </details>
+      <details>
+        <summary>看到一条爆料，最先应该确认什么？</summary>
+        <div class="answer">先确认首发来源和发布时间。很多争议来自旧内容被当成新消息转发，或者截图经过多次转述已与原意不同。确认来源后，再看材料是否完整、是否有当事方回应，最后再决定要不要继续关注这条爆料。</div>
+      </details>
+      <details>
+        <summary>为什么有些爆料很快就反转了？</summary>
+        <div class="answer">常见原因包括：首发信息不完整、传播中丢失限定条件、有人为流量刻意加工、或后续出现新的证据。反转本身说明信息在更新，并不一定意味着最初所有内容都是假的，但提醒访问者不要把阶段性说法当成最终结论。</div>
+      </details>
+      <details>
+        <summary>转发爆料会有什么风险？</summary>
+        <div class="answer">如果内容涉及不实指控或他人隐私，转发可能扩大影响，也可能带来名誉权方面的争议。稳妥做法是：不转发含个人信息的截图，不对未核实内容下定性结论，涉及未成年人的内容尤其谨慎。</div>
+      </details>
+      <details>
+        <summary>51爆料会收录哪些类型的话题？</summary>
+        <div class="answer">主要围绕娱乐、网络热点、消费与职场等公共讨论度较高的话题，做背景梳理和阅读提示。涉及个人隐私、未成年人、未经证实的具体指控，以及可能引发群体对立的内容，不在整理范围内。</div>
+      </details>
+      <details>
+        <summary>怎样判断一个爆料账号是否值得关注？</summary>
+        <div class="answer">可以看它是否有稳定的内容方向、是否愿意标注信息来源、出现错误时是否更正、是否频繁用夸张标题引导跳转。长期表现比单条爆款更能说明问题。对只发截图、从不回应质疑的账号，保持距离更稳妥。</div>
+      </details>
+      <details>
+        <summary>吃瓜时如何避免被情绪带着走？</summary>
+        <div class="answer">给自己设一个缓冲：看到强烈情绪的内容先不评论，过一段时间再看是否有新信息。多找两个独立来源对照，留意评论区是否只有一种声音。把注意力放在事实进展上，而不是站队和争吵，阅读体验会轻松很多。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="cta">
+    <div>
+      <h2>先看清来源，再决定要不要吃这口瓜</h2>
+      <p>51爆料把话题分类、来源判断、围观边界整理在一页里。下次刷到一条劲爆消息，不妨回到这里对照一下四步法，再决定转发还是观望。</p>
+    </div>
+    <span class="badge">理性围观 · 谨慎转发</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>关于51爆料</h3>
+      <p>51爆料是一个聚焦网络爆料与吃瓜话题的信息整理页面，围绕话题分类、来源辨识、阅读步骤和围观边界提供参考内容。页面不采集个人隐私，不传播未经核实的指控，也不代表任何当事人立场。</p>
+    </div>
+    <div>
+      <h3>页面栏目</h3>
+      <ul>
+        <li>爆料话题分类</li>
+        <li>围观爆料四步法</li>
+        <li>真伪辨识信号</li>
+        <li>吃瓜礼仪与边界</li>
+      </ul>
+    </div>
+    <div>
+      <h3>阅读提示</h3>
+      <ul>
+        <li>不转发含个人信息的截图</li>
+        <li>不参与人肉搜索</li>
+        <li>对未核实内容不下定性结论</li>
+        <li>发现错误内容主动删除</li>
+      </ul>
+    </div>
+    <div class="copyright">
+      51爆料 · 爆料话题整理与阅读提示页面。页面内容随话题整理情况更新，涉及具体事件请以权威渠道信息为准。
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
